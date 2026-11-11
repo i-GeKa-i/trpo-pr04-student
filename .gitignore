@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+vendor/
+node_modules/
+data/applications.json
