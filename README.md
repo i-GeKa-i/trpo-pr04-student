@@ -14,10 +14,10 @@
 ```bash
 git clone https://github.com/i-GeKa-i/trpo-pr04-student.git
 cd trpo-pr04-student
-php -S localhost:8000 -t public
+php -S 127.0.0.1:8000 -t public
 ```
 
-Откройте <http://localhost:8000>. Если порт занят — возьмите другой (`localhost:8080`).
+Откройте <http://127.0.0.1:8000>. Если порт занят — возьмите другой (`127.0.0.1:8080`).
 
 ## Структура
 
