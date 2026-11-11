@@ -127,7 +127,6 @@ $applications = loadApplications();
 
             <label for="department">Отдел</label>
             <select id="department" name="department">
-                <option value=""></option>
                 <?php foreach ($departments as $dep): ?>
                     <option value="<?= e($dep) ?>" <?= $dep === $values['department'] ? 'selected' : '' ?>><?= e($dep) ?></option>
                 <?php endforeach; ?>
