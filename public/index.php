@@ -112,15 +112,8 @@ $applications = loadApplications();
             <p class="ok" role="status">Заявка принята: <?= e($accepted['name']) ?> (<?= e($accepted['department']) ?>).</p>
         <?php endif; ?>
 
-        <?php if ($errors): ?>
-            <div class="errors" role="alert">
-                <b>Исправьте ошибки:</b>
-                <ul>
-                    <?php foreach ($errors as $message): ?>
-                        <li><?= e($message) ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
+        <?php if (isset($errors['form'])): ?>
+            <div class="errors" role="alert"><?= e($errors['form']) ?></div>
         <?php endif; ?>
 
         <form method="post" action="#request" novalidate>
@@ -134,7 +127,7 @@ $applications = loadApplications();
 
             <label for="department">Отдел</label>
             <select id="department" name="department">
-                <option value="">— выберите —</option>
+                <option value=""></option>
                 <?php foreach ($departments as $dep): ?>
                     <option value="<?= e($dep) ?>" <?= $dep === $values['department'] ? 'selected' : '' ?>><?= e($dep) ?></option>
                 <?php endforeach; ?>
