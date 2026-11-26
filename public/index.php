@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// Ошибки показываем только при локальной разработке (шаг 15)
 if (in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1'], true)) {
     ini_set('display_errors', '1');
     error_reporting(E_ALL);
@@ -11,19 +10,19 @@ require_once __DIR__ . '/../src/functions.php';
 
 header('Content-Type: text/html; charset=utf-8');
 
-// Шаг 4: переменные разных типов и массив
-$appTitle = 'Заявки сотрудников';      // string
-$today = date('d.m.Y');                // string
-$stages = ['Данные', 'Форма', 'Проверка']; // array
+
+$appTitle = 'Заявки сотрудников';     
+$today = date('d.m.Y');                
+$stages = ['Данные', 'Форма', 'Проверка']; 
 
 $employees = loadEmployees();
 $departments = departmentsOf($employees);
 
-// Фильтр по одному GET-параметру (шаг 13)
+
 $filter = trim((string) ($_GET['department'] ?? ''));
 $visible = filterByDepartment($employees, $filter);
 
-// Обработка формы (шаги 8–10)
+
 $values = ['name' => '', 'email' => '', 'department' => '', 'experience' => ''];
 $errors = [];
 $accepted = null;
